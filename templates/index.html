@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/lib.css') }}">
+   
+    <style>
+        td,td{
+            width:50px;
+            height:50px;
+        }
+        .color1{
+            background-color: {{ colorOne }};
+        }
+
+        .color2{
+            background-color: {{ colorTwo }};
+        }
+    </style>
+</head>
+<body>
+    <main class="display-flex col justify-contentC align-itemsC gap20">
+        <h1>{{x}} by {{y}} matrix<h1>
+        <table>
+            {% for i in range(y): %}
+                <tr>
+                    {% for j in range(x): %} 
+                        <td class="color{{ (i+j)%2+1 }}"></td> 
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </main>
+</body>
+</html>
